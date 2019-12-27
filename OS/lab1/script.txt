@@ -1,0 +1,20 @@
+cr 1 1
+cr 2 1
+cr 3 1
+cr 4 1
+to
+req 2 1
+to
+req 3 3
+to
+req 4 3
+to
+to
+req 3 1
+req 4 2
+req 2 2
+to
+de 3
+to
+to
+quit
