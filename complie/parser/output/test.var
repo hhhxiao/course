@@ -1,0 +1,4 @@
+vname    vtype    vadr  vproc     vlev     vkind
+x        integer  0     main        0     0
+n        integer  1     f           1     1
+n        integer  2     f           1     0

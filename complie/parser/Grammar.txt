@@ -1,0 +1,37 @@
+//程序(过程)
+Program         -> StatementBlock
+StatementBlock  -> begin  DescriptionList ; ExecuteList end
+
+//说明语句列表
+DescriptionList -> Description  DescriptionList'
+DescriptionList'-> ; Description DescriptionList' | empty
+
+//描述语句
+Description     ->  integer ID funcDescription
+funcDescription ->  function ID(ID);functionBody |empty
+functionBody    ->  StatementBlock
+
+//执行语句列表
+ExecuteList     -> Execution ExecuteList'
+ExecuteList'    -> ;Execution ExecuteList' | empty
+
+//执行语句
+Execution       -> ReadExp|WriteExp|AssignExp|ConditionExp
+RedExp          -> read(ID)
+WriteExp        -> write(ID)
+AssignExp       -> Var:= ArithExp
+ConditionExp    -> if ConditionStat then Execution else Execution
+ConditionStat   -> ArithExp RelationOP ArithExp
+RelationOP      -> < | > | <= | >= | = | <>
+
+算数表达式(外层减法)
+ArithExp        -> Item ArithExp'
+ArithExp'       -> - Item ArithExp' | empty
+Item            -> Factor Item'
+Item'           -> * Factor Item' |empty
+Factor          -> CONS | ID FuncPart
+FuncPart ->  (ArithExp) | empty
+
+
+
+
